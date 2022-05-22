@@ -44,7 +44,8 @@ First Approach - Thinking about it as NE
                     - local labor market will contain all of the spillovers we would expect from treatment at different level which would cause shocks at higher level
                     - we assume that these are commuter zones and won't spillover outside of it
         - Borusyak, Hull, and Jaravel 2022
-            - assume that some industries have positive and some negative shocks randomly. 
+            - Good way to think about this is that we have a natural experiment and the shocks are random
+                - assume that some industries have positive and some negative shocks randomly. 
                 - zl and zk are not iid 
             - what is the estimator we are talking about? 
                 - estimating beta controlling for w and instrumenting for x with z (with shares summing to 1)
@@ -57,7 +58,33 @@ First Approach - Thinking about it as NE
                     - qn is like a sector fixed effect 
                 - we need conditional quasi-random assignment
                 - weakly mutually correlated shocks
-                - 
+- Goldsmith paper (2020)
+    - Good way to think about this is the shares are random
+        - Start w Card 1990
+            - lagged share of cuban workers as an instrument
+            - regress in employment on change in immigration instrumented by lagged share of cuban workers
+            - we only have 1 shock where the shock is cuba sent lots of immigrants one year and we compare regions with high and low shares of cuban immigrants
+            - need parallel trends assumption for thinking these low-immigrant regions would be a good stand in for high-immigrant regions
+                - 0 shocks from other countries
+                - not thinking about random shocks, instead assume they are fixed
+                - n is fixed, looking at variation in l, (but more n will give us more power)
+        - would want to use rotemberg weights (get from his website) if you're going to use this method
+        - look at rotemberg weights in card (2009) graph 
+            - notice all weights are positive in this context (shows homogenous effects)
+            - dashed line is ssiv estimate (average), big circle shows that gets a big weight
+            - we see that most of the estimates are clustered around -0.04 which means weights aren't driving the results
+            - we like this! 
+        - share exogeneity assumption is not that "shares don't causally respond to the residual" (they can't: shares are pre-determined)
+            - it's "all unobservables are uncorrelated with anythign about th elocal share distribution"
+            - condition violated when there are any unobserved shocks that affect error term via the same or correlated shares
+        - no industry level unobservalbes that are relevant in the pre-period
+            - don't want shares to be "generic" or good at predicting many things
+            - when share exogeneity is ex ante plausible, we can test its assumptions ex post (focusing on high rotemberg weight n)
+                - balance pre trend tests
+                - overidentification tests under constant effects
+                - straightfoward to implement
+- GOOD SLIDE - A TAXONOMY OF SSIV SETTINGS
+- 
 
         
         
